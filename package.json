@@ -1,0 +1,23 @@
+{
+  "name": "turtleneck",
+  "version": "0.0.1",
+  "description": "\"A simple app to choose a presenter at random.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tzmanics/turtleneck.git"
+  },
+  "author": "Tara Z. Manicsic <tzmanics@gmail.com> (http://tzmanics.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzmanics/turtleneck/issues"
+  },
+  "homepage": "https://github.com/tzmanics/turtleneck",
+  "dependencies": {
+    "good": "^2.2.3",
+    "hapi": "^6.5.1"
+  }
+}
