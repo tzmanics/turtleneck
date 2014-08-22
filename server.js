@@ -1,3 +1,4 @@
+// setup
 var express         = require('express');
 var app             = express();
 var mongoose        = require('mongoose');
@@ -7,8 +8,10 @@ var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
 
+// configuration 
 mongoose.connect(database.url);
 
+app.use(express.static(__dirname + '/public'));
 app.use(express.bodyParser());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -20,7 +23,13 @@ app.post('/presenter/create', function (req, res) {
   res.send(d)
 });
 
+// routes 
 require('./app/routes.js')(app);
 
+// listen 
 app.listen(port);
 console.log("App listening on port " + port);
+
+
+//matt's page for file upload ref 
+//https://github.com/fiveisprime/cloud-storage-example/blob/master/index.js

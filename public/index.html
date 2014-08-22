@@ -7,7 +7,11 @@
 
   <title>Turtleneck | Presenter Picker</title>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' 
+  rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js">
+  </script>
   <script src="js/controllers/main.js"></script>
   <script src="js/services/presenters.js"></script>
   <script src="js/core.js"></script>
@@ -18,21 +22,25 @@
 
 <body ng-controller="mainController">
   <div class="container">
-    
-    <h1>TURTLENECK</h1>
-    <h2>presenter picker</h2>
+    <div id="title">
+      <h1>TURTLENECK</h1>
+      <h2>presenter picker</h2>
+    </div>
 
     <div id="presenter-list" class="row">
-      <div class="col-sm-4 col-sm-offset-4">
+      <div>
         <div class="checkbox" ng-repeat="presenter in presenters">
           <label>
-            <input type="checkbox" ng-click="deletePresenter(presenter._id)">
-            <img src="img/+ {{ presenter.avatar }}"> {{ presenter.name }} 
+            <input type="checkbox" 
+                   name="selectedPresenter[]"
+                   value="{{presenter.name}}"
+                   ng-click="toggleSelection(presenter.name)">
+                   <h1>{{ presenter.name }}
+            <button type="button" class="deleteBtn" 
+                    ng-click="deletePresenter(presenter._id)"
+                    >DELETE</button></h1>
           </label>
         </div>
-          <p class-"text-center" ng-show="loading">
-            <span class="fa fa-spinner fa-spin fa-3x"></span>
-          </p>
       </div>
     </div>
 
@@ -40,14 +48,16 @@
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <form>
           <div class="form-group">
-            <input type="text" class="form-control input-lg text-center" 
-            placeholder="ur name" ng-model="formData.name">
-            <input type="file" class="form-control input-lg text-center" 
-            ng-model="formData.avatar">
+            <input type="text" class="name" 
+            placeholder="<presenter name>" ng-model="formData.name">
           </div>
-          <button type="submit" class="btn btn-primary btn-lg" ng-click="createPresenter()">ADD</button>
+          <button type="submit" ng-click="createPresenter()">ADD</button>
         </form>
       </div>
+      <button type="submit" id="picker" ng-click="pickPresenter()">PICK PRESENTER</button>
+    </div>
+    <div id="result">
+      <h1>{{ presenterPicked }}</h1>
     </div>
   </div>
 
