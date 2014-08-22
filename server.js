@@ -1,31 +1,26 @@
-var hapi     = require('hapi');
-var good     = require('good');
+var express         = require('express');
+var app             = express();
+var mongoose        = require('mongoose');
+var port            = process.env.PORT || 8080;
+var database        = require('./config/database');
+var morgan          = require('morgan');
+var bodyParser      = require('body-parser');
+var methodOverride  = require('method-override');
 
-var server   = new hapi.Server('0.0.0.0', 
-               parseInt(process.env.PORT, 10) || 3000);
+mongoose.connect(database.url);
 
-server.route({
-  method: 'GET',
-  path:   '/',
-  handler: function (req, res) {
-    res('Hello World');
-  }
+app.use(express.bodyParser());
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({'extended':'true'}));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(methodOverride('X-HTTP-Method-Override'));
+
+app.post('/presenter/create', function (req, res) {
+  res.send(d)
 });
 
-server.route({
-  method: 'GET',
-  path:   '/{name}',
-  handler: function (req, res) {
-    res('Hello, ' + encodeURIComponent(req.params.name) +
-      '!');
-  }
-});
+require('./app/routes.js')(app);
 
-server.pack.register(good, function (err) {
-  if (err) {
-    throw err;
-  };
-  server.start(function () {
-    console.log('Server running at: ' +  server.info.uri);
-  });
-});
+app.listen(port);
+console.log("App listening on port " + port);
