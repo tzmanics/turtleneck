@@ -14,8 +14,6 @@ module.exports = function (app) {
   app.post('/api/presenters', function (req, res) {
     Presenter.create({
       name : req.body.name,
-      // TODO: move and rename the file using req.files.path & .name
-      avatar : req.files,
       done : false
     }, function(err, presenter) {
       if (err)
@@ -28,18 +26,6 @@ module.exports = function (app) {
       });
     });
 });
-
-app.post('/presenter/create', function (req, res) {
-  // TODO: move and rename the file using req.files.path & .name
-  res.send(console.dir(req.files));
-});
-
-
-
-
-
-
-
 
   app.delete('/api/presenters/:presenter_id', function(req, res) {
     Presenter.remove({

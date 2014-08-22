@@ -1,0 +1,123 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+body{
+  font-family: 'Oswald', sans-serif;;
+  font-weight: 100;
+  background-color: #C0C0C0 ;
+}
+#title h1{
+  font-size: 5em;
+  font-weight: 500;
+}
+
+h1{
+  font-size: 4em;
+  margin-top: .5em;
+}
+h2{
+  font-size: 2.5em;
+  color: rgba(255, 255, 255, .95);
+  position: relative;
+  left: 5em;
+  top: -.75em;
+}
+
+label{
+  font-size: .5em;
+}
+input{
+  float: left;
+  position: relative;
+  bottom: -.75em;
+  width: 2em;
+}
+button{
+  position: relative;
+  top: 2em;
+}
+
+button:hover{
+  background-color: white;
+}
+
+#presenter-list{
+  padding: 1em;
+}
+
+.name{
+  width: 15em;
+  height: 2em;
+  margin: 1em;
+  float: left;
+}
+
+.deleteBtn{
+  top: -.6em;
+}
+
+#presenter-form{
+margin: 0 5em;
+}
+
+#picker{
+  position: relative;
+  top: 2em;
+  left: -5.75em;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2em;
+}
+
+#result{
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 4em;
+}
