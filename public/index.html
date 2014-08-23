@@ -43,18 +43,16 @@
         </div>
       </div>
     </div>
-
-    <div id="presenter-form" class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <form>
-          <div class="form-group">
-            <input type="text" class="name" 
-            placeholder="<presenter name>" ng-model="formData.name">
-          </div>
-          <button type="submit" ng-click="createPresenter()">ADD</button>
-        </form>
-      </div>
-      <button type="submit" id="picker" ng-click="pickPresenter()">PICK PRESENTER</button>
+    <div>
+      <form>
+        <div class="form-group">
+          <input type="text" class="name" 
+          placeholder="<presenter name>" ng-model="formData.name">
+        </div>
+        <button type="submit" ng-click="createPresenter()">ADD</button>
+      </form>
+      <button type="submit" id="picker" ng-click="pickPresenter()">
+      PICK PRESENTER</button>
     </div>
     <div id="result">
       <h1>{{ presenterPicked }}</h1>
