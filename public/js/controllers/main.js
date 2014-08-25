@@ -40,8 +40,15 @@ angular.module('presenterController', [])
   };
 
   $scope.toggleSelection = function (name){
-    presenterList.push(name);
-    console.log(presenterList);
+    if (!document.getElementById(name).checked) {
+      for (key in presenterList){
+        if (presenterList[key] === name){
+          presenterList.splice(key, 1);
+        };
+      };
+    } else {
+      presenterList.push(name);
+    };
   };
 
   $scope.pickPresenter = function (){
